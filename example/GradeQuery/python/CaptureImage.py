@@ -13,13 +13,13 @@ header = {
 try:
 	session = requests.session()
 	conn = session.get( url, headers=header )
-	fout = open( "../value/image/checkcode.jpg", "w" )
+	fout = open( "../value/image/checkcode.jpg", "wb" )
 	fout.write( conn.content )
 	fout.close()
 except Exception,e:
 	print e
 
-print "CaptureImage.py"
+# print "CaptureImage.py"
 
 
 # mark

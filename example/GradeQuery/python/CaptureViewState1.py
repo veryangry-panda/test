@@ -35,6 +35,7 @@ def generateCookie( conn ):
 session = requests.session()
 conn = session.get( url, headers=header )
 
+
 # print conn.content
 
 # generate cookie
@@ -43,7 +44,8 @@ generateCookie( conn )
 # generate ViewState
 Common.generateViewState( conn )
 
-print "CaptureViewState1.py"
+# print conn.content
+
 
 # mark
 # fout = open( "CaptureViewState1.txt", "w" )

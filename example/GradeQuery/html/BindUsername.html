@@ -30,7 +30,7 @@
 <script type="text/javascript" src="../js/setCookie.js"></script>
 <script type="text/javascript" src="../js/getCookie.js"></script>
 <script type="text/javascript">
-	if( getCookie("username") != "" ) {
+	if( getCookie("password") != "" ) {
 		location.href = "InputCheckcode.html";
 	}
 	$("#radio").click( function() {
@@ -60,6 +60,7 @@
 			success: function(response){
 				console.log(response)
 				setCookie( "username", username, 30 )
+				setCookie( "password", password, 30 )
 				location.href = "InputCheckcode.html";
 			}   
 		})  

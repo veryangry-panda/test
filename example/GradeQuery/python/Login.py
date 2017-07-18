@@ -1,11 +1,16 @@
+#coding:utf-8
+
 import simplejson
 import requests
+import Common
+import bs4
+import sys
+
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 url = "http://202.119.225.34/default2.aspx"
 
-fin = open("../value/parameter/cookie.txt")
-cookie = fin.read()
-fin.close()
 header = {
     "Host": "202.119.225.34",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:54.0) Gecko/20100101 Firefox/54.0",
@@ -15,46 +20,41 @@ header = {
     "Content-Type": "application/x-www-form-urlencoded",
     "Content-Length": "205",
     "Referer": "http://202.119.225.34/default2.aspx",
-    "Cookie": cookie,
+    "Cookie": Common.getCokkie(),
     "Connection": "keep-alive",
     "Upgrade-Insecure-Requests": "1"
 }
-fin = open("../value/parameter/username.txt")
-jsonStr = fin.read()
-jsonObj = simplejson.loads(jsonStr)
-# print json
-fin.close()
-username = jsonObj["username"]
-password = jsonObj["password"]
-# dDwtNTE2MjI4MTQ7Oz7mVyvQA2u2y4eNL2Izmk/oP8BTCA==
-try:
-    fin = open("../value/parameter/viewState.txt")
-    viewState = fin.read()
-    fin.close()
-    fin = open("../value/parameter/checkcode.txt")
-    checkcode = fin.read()
-    fin.close()
-except Exception, e:
-    print e
 
 data = {
-    "__VIEWSTATE": viewState,
-    "txtUserName": username,
+    "__VIEWSTATE": Common.getViewState(),
+    "txtUserName": Common.getUsername(),
     "Textbox1": "",
-    "TextBox2": password,
-    "txtSecretCode": checkcode,
+    "TextBox2": Common.getPassword(),
+    "txtSecretCode": Common.getCheckcode(),
     "RadioButtonList1": "%D1%A7%C9%FA",
     "Button1": "",
     "lbLanguage": "",
     "hidPdrs": "",
     "hidsc": ""
 }
-print checkcode
+
+
 
 session = requests.session()
-conn = session.post(url, headers=header, data=data)
+conn = session.post(url, headers=header, data=data )
+content =  conn.content.decode("gb2312").encode("utf-8")
+# print content
+if content.index( "验证码不正确" ) != -1:
+    print "checkcode is wrong"
+if content.index( "密码不能为空" ) != -1:
+    print "password is empty"
+if content.index( "密码错误" ) != -1:
+    print "password is empty"
+# soup = bs4.BeautifulSoup( conn.content, "html.parser", from_encoding="utf-8" )
 
-print "Login.py"
+
+
+# print conn.content
 
 
 

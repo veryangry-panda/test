@@ -44,3 +44,9 @@ def generateViewState( conn ):
     fout = open("../value/parameter/viewState.txt", "w")
     fout.write(viewState)
     fout.close()
+
+def getCheckcode():
+    fin = open("../value/parameter/checkcode.txt")
+    checkcode = fin.read()
+    fin.close()
+    return checkcode

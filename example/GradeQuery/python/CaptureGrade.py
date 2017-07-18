@@ -7,6 +7,7 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
 
+
 import Common
 import requests
 
@@ -25,10 +26,10 @@ data = {
 
 session = requests.session()
 conn = session.post( url, headers=header, data=data )
-# print conn.content
 
 soup = bs4.BeautifulSoup(conn.content, "html.parser", from_encoding="utf-8")
 trs = soup.find("table").find_all("tr")
+
 
 flag = True
 result = []
@@ -53,10 +54,9 @@ for tr in trs:
 
     result.append(result_pre)
 
-fout = open( "../value/parameter/gradeJson.txt", "w" )
+
 result = simplejson.dumps(result,encoding='utf-8',ensure_ascii=False)
-fout.write( result )
-fout.close()
+print result
 
 # mark
 # fout = open( "CaptureGrade.txt", "w" )

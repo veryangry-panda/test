@@ -38,10 +38,16 @@
 			url: '../php/ShowResult.php',  
 			type: 'POST',  
 			data:{
-				"username":username
+				"username":getCookie( "username" ),
+				"password":getCookie( "password" )
 			},
 			success: function(response){
 				console.log(response)
+				if( response.indexOf( "checkcode is wrong") != -1 ) {
+					alert( "Checkcode is wrong!" )
+					location.href = "InputCheckcode.html"
+					return
+				}
 				var jsons = jQuery.parseJSON( response );
 				var html = $("#table tbody").html();
 				var index1 = html.indexOf("<tr>", "<tr>".length + 5 );
@@ -69,6 +75,19 @@
 
 
 
+		// var res = '[{"className": "大学生心理健康", "credit": "0.5", "GPA": "4.50", "grade": "优秀"}, \
+		// 	{"className": "大学英语Ⅱ", "credit": "3.0", "GPA": "4.10", "grade": "91"}, \
+		// 	{"className": "大学语文", "credit": "2.0", "GPA": "4.10", "grade": "91"}, \
+		// 	{"className": "服务外包导论", "credit": "1.0", "GPA": "3.50", "grade": "良好"}, \
+		// 	{"className": "高等数学A（上）", "credit": "5.0", "GPA": "4.10", "grade": "91"}, \
+		// 	{"className": "高级语言程序设计", "credit": "3.5", "GPA": "4.90", "grade": "99"}, \
+		// 	{"className": "近现代史实践", "credit": "0.5", "GPA": "3.50", "grade": "良好"}, \
+		// 	{"className": "军事理论", "credit": "1.0", "GPA": "4.00", "grade": "90"}, \
+		// 	{"className": "军训", "credit": "1", "GPA": "3.50", "grade": "85"}, \
+		// 	{"className": "体育Ⅰ", "credit": "1", "GPA": "4.90", "grade": "99"}, \
+		// 	{"className": "线性代数与解析几何", "credit": "3", "GPA": "5.00", "grade": "100"}, \
+		// 	{"className": "形势与政策（上）", "credit": "1.0", "GPA": "4.50", "grade": "优秀"}, \
+		// 	{"className": "中国近现代史纲要", "credit": "1.5", "GPA": "3.20", "grade": "82"}]';
 		// var jsons = jQuery.parseJSON( res );
 		// for( var i in jsons ) {
 		// 	console.log( jsons[i]["className"] )
