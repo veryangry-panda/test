@@ -27,6 +27,7 @@
 				"command":"generate"
 			},
 			success: function(response){
+				console.log(response)
 				$("img").attr( "src", "../value/image/checkcode.jpg")
 			}   
 		})
@@ -41,6 +42,7 @@
 					"checkcode":checkcode
 				},
 				success: function(response){
+					console.log(response)
 					location.href = "ShowResult.html"
 				}   
 			})  

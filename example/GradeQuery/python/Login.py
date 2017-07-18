@@ -27,12 +27,16 @@ fin.close()
 username = jsonObj["username"]
 password = jsonObj["password"]
 # dDwtNTE2MjI4MTQ7Oz7mVyvQA2u2y4eNL2Izmk/oP8BTCA==
-fin = open("../value/parameter/viewState.txt")
-viewState = fin.read()
-fin.close()
-fin = open("../value/parameter/checkcode.txt")
-checkcode = fin.read()
-fin.close()
+try:
+    fin = open("../value/parameter/viewState.txt")
+    viewState = fin.read()
+    fin.close()
+    fin = open("../value/parameter/checkcode.txt")
+    checkcode = fin.read()
+    fin.close()
+except Exception, e:
+    print e
+
 data = {
     "__VIEWSTATE": viewState,
     "txtUserName": username,
@@ -45,9 +49,12 @@ data = {
     "hidPdrs": "",
     "hidsc": ""
 }
+print checkcode
 
 session = requests.session()
 conn = session.post(url, headers=header, data=data)
+
+print "Login.py"
 
 
 

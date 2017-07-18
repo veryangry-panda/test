@@ -43,6 +43,8 @@ generateCookie( conn )
 # generate ViewState
 Common.generateViewState( conn )
 
+print "CaptureViewState1.py"
+
 # mark
 # fout = open( "CaptureViewState1.txt", "w" )
 # fout.close()

@@ -13,6 +13,10 @@ conn = session.get( url, headers=header )
 
 Common.generateViewState( conn )
 
+print conn.content
+
+print "CaptureViewState2.py"
+
 # mark
 # fout = open( "CaptureViewState2.txt", "w" )
 # fout.close()

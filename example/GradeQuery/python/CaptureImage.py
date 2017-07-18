@@ -7,13 +7,20 @@ header = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv54.0) Gecko/20100101 Firefox/54.0',
     "Cookie":Common.getCokkie()
 }
-print Common.getCokkie()
 
-session = requests.session()
-conn = session.get( url, headers=header )
-fout = open( "../value/image/checkcode.jpg", "wb" )
-fout.write( conn.content )
-fout.close()
+
+
+try:
+	session = requests.session()
+	conn = session.get( url, headers=header )
+	fout = open( "../value/image/checkcode.jpg", "w" )
+	fout.write( conn.content )
+	fout.close()
+except Exception,e:
+	print e
+
+print "CaptureImage.py"
+
 
 # mark
 # fout = open( "CaptureImage.txt", "w" )
