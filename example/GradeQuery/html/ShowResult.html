@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- prevent request of favicon.ico -->
+	<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+	<meta charset="UTF-8">
+	<title>Show Result</title>
+	<style type="text/css">
+		table tr td {
+			width: 130px;
+			text-align: center;
+		}
+		.circle {
+			width: 100px;
+		}
+	</style>
+</head>
+<body>
+	<table border="1" id="table">
+		<tr>
+			<td>className</td>
+			<td>credit</td>
+			<td>GPA</td>
+			<td>grade</td>
+		</tr>
+		<tr>
+			<td colspan="4"><img class="circle" src="../value/image/circle.gif"></td>
+		</tr>
+	</table>
+</body>
+</html>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/getCookie.js"></script>
+<script type="text/javascript">
+	$(document).ready( function() {
+		var username = getCookie( "username" );
+		$.ajax({  
+			url: '../php/ShowResult.php',  
+			type: 'POST',  
+			data:{
+				"username":username
+			},
+			success: function(response){
+				console.log(response)
+				var jsons = jQuery.parseJSON( response );
+				var html = $("#table tbody").html();
+				var index1 = html.indexOf("<tr>", "<tr>".length + 5 );
+				html = html.substring( 0, index1 )
+				for( var i in jsons ) {
+					html += "<tr>";
+
+					for( var j in jsons[i] ) {
+						html += "<td>";
+
+						html += jsons[i][j];
+
+						html += "</td>";
+					}
+
+					html += "</tr>";
+				}
+				$("#table tbody").html(html);
+			}   
+		})  
+
+
+
+
+
+
+
+		// var jsons = jQuery.parseJSON( res );
+		// for( var i in jsons ) {
+		// 	console.log( jsons[i]["className"] )
+		// }
+		// var html = $("#table tbody").html();
+		// for( var i in jsons ) {
+		// 	html += "<tr>";
+
+		// 	for( var j in jsons[i] ) {
+		// 		html += "<td>";
+
+		// 		html += jsons[i][j];
+
+		// 		html += "</td>";
+		// 	}
+
+		// 	html += "</tr>";
+		// }
+		// $("#table tbody").html(html);
+	})
+</script>
