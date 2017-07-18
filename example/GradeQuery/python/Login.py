@@ -1,5 +1,4 @@
-import json
-import Common
+import simplejson
 import requests
 
 url = "http://202.119.225.34/default2.aspx"
@@ -22,7 +21,7 @@ header = {
 }
 fin = open("../value/parameter/username.txt")
 jsonStr = fin.read()
-jsonObj = json.loads(jsonStr)
+jsonObj = simplejson.loads(jsonStr)
 # print json
 fin.close()
 username = jsonObj["username"]

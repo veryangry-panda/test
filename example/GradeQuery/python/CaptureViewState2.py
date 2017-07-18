@@ -1,5 +1,3 @@
-import bs4
-
 import Common
 import requests
 

@@ -1,4 +1,4 @@
-import json
+import simplejson
 
 import bs4
 
@@ -19,7 +19,7 @@ def getUsername():
     fin = open("../value/parameter/username.txt")
     jsonStr = fin.read()
     fin.close()
-    jsonObj = json.loads(jsonStr)
+    jsonObj = simplejson.loads(jsonStr)
     username = jsonObj["username"]
     return username
 
@@ -27,7 +27,7 @@ def getPassword():
     fin = open("../value/parameter/username.txt")
     jsonStr = fin.read()
     fin.close()
-    jsonObj = json.loads(jsonStr)
+    jsonObj = simplejson.loads(jsonStr)
     password = jsonObj["password"]
     return password
 

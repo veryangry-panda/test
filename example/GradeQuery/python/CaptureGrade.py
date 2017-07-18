@@ -1,4 +1,4 @@
-import json
+import simplejson
 
 import bs4
 
@@ -54,7 +54,7 @@ for tr in trs:
     result.append(result_pre)
 
 fout = open( "../value/parameter/gradeJson.txt", "w" )
-result = json.dumps(result,encoding='utf-8',ensure_ascii=False)
+result = simplejson.dumps(result,encoding='utf-8',ensure_ascii=False)
 fout.write( result )
 fout.close()
 
