@@ -5,25 +5,13 @@
 	<title>Test</title>
 </head>
 <body>
-	<form>
-		username:<input type="text" name="" id="usename">
+	<form action="test.php" methon="get">
+		username:<input type="text" name="username">
 		<br>
-		password:<input type="password" name="" id="password">
+		password:<input type="password" name="password" >
 		<br>
-		<input type="submit" name="" id="submit">
+		<input type="submit" name="" >
 	</form>
 </body>
 </html>
-<script>
-	document.querySelector("#submit").onclick=function(){
-		var usename=document.querySelector("#usename");
-		var password=document.querySelector("#password");
-		var ajax=new XMLHttpRequest();
-		ajax.open('get','test.php');
-		ajax.send('usename='+usename.value+'&password='+password.value);
-		ajax.onreadystatechange=function(){
-			var jsObj=JSON.parse(ajax.responseText);
-			console.log(jsObj);//直接在控制台打印返回的内容
-		}
-	}
-</script>
+
