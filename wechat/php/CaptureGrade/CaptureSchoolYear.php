@@ -4,8 +4,6 @@
 	*		username
 	*		password
 	*		checkcode
-	*		schoolYear, example, 2016-2017
-	*		term, example, 1
 	*	output:
 	*		result => fail
 	*			failReason => username or password is empty
@@ -13,23 +11,18 @@
 	*				or checkout is wrong
 	*				or password is wrong
 	*				or need to login in again
-	*				or school year or term is empty
 	*
 	*		result => success
-	*			grade => json array, example:[{"className": "大学生心理健康", "credit": "0.5", "GPA": "4.50", "grade": "优秀"}, {"className": "大学英语Ⅱ", "credit": "3.0", "GPA": "4.10", "grade": "91"}]
+	*			schoolYear => an array, example, ["2016-2017", "2015-2016"]
 	*/
 
 	$username = $_POST["username"];
 	$password = $_POST["password"];
 	$checkcode = $_POST["checkcode"];
-	$schoolYear = $_POST["schoolYear"];
-	$term = $_POST["term"];
 
 	// $username = "B16041718";
 	// $password = "";
-	// $checkcode = "h5ld";
-	// $schoolYear = "2016-2017";
-	// $term = "2";
+	// $checkcode = "8l1h";
 	if( $username == "" || $password == "" ) {
 		$arr = Array(
 			"result" => "fail",
@@ -37,22 +30,6 @@
 		);
 		echo json_encode( $arr );
 		return;
-	}
-	if( $schoolYear == "" || $term == "" ) {
-		$arr = Array(
-			"result" => "fail",
-			"failReason" => "school year or term is empty"
-		);
-		echo json_encode( $arr );
-		return;
-	} else {
-		$arr = Array(
-			"schoolYear" => $schoolYear,
-			"term" => $term
-		);
-		$fout = fopen( "../../value/parameter/CaptureGrade/term.txt", "w" );
-		fwrite( $fout, json_encode( $arr ) );
-		fclose( $fout );
 	}
 	
 	if( $checkcode != "" ) {
@@ -82,7 +59,5 @@
 		echo $info[0];
 		return;
 	}
-	system( "python ../../python/CaptureGrade/CaptureViewState2.py" );
-	system( "python ../../python/CaptureGrade/CaptureGrade.py" );
-	return;
+	system( "python ../../python/CaptureGrade/CaptureSchoolYear.py" );
  ?>

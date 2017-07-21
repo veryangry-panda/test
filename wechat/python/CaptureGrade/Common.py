@@ -50,3 +50,19 @@ def getCheckcode():
     checkcode = fin.read()
     fin.close()
     return checkcode
+
+def getTerm():
+    fin = open("../../value/parameter/CaptureGrade/term.txt")
+    jsonStr = fin.read()
+    fin.close()
+    jsonObj = simplejson.loads(jsonStr)
+    term = jsonObj["term"]
+    return term
+
+def getSchoolYear():
+    fin = open("../../value/parameter/CaptureGrade/term.txt")
+    jsonStr = fin.read()
+    fin.close()
+    jsonObj = simplejson.loads(jsonStr)
+    schoolYear = jsonObj["schoolYear"]
+    return schoolYear

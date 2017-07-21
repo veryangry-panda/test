@@ -12,3 +12,8 @@ example/GradeQuery/python/.idea/workspace.xml
 wechat/python/result.html
 wechat/python/CaptureGrade/Common.pyc
 
+wechat/value/images/CaptureGrade/checkcode.jpg
+wechat/value/parameter/CaptureGrade/checkcode.txt
+wechat/value/parameter/CaptureGrade/cookie.txt
+wechat/value/parameter/CaptureGrade/username.txt
+wechat/value/parameter/CaptureGrade/viewState.txt

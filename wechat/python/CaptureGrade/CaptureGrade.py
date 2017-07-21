@@ -1,8 +1,9 @@
-import sys
+
 
 import bs4
 import simplejson
 
+import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
 
@@ -17,8 +18,8 @@ header = {
 }
 data = {
     "__VIEWSTATE": Common.getViewState(),
-    "ddlXN":"2016-2017",
-    "ddlXQ":"1",
+    "ddlXN":Common.getSchoolYear(),
+    "ddlXQ":Common.getTerm(),
     "Button1":"%B0%B4%D1%A7%C6%DA%B2%E9%D1%AF"
 }
 
