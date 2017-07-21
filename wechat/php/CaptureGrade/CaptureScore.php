@@ -1,18 +1,18 @@
 <?php 
 	/**
-		input:
-			username
-			password
-		output:
-			result => fail
-				failReason => username or password is empty
-					or checkcode is empty
-					or checkout is wrong
-					or password is wrong
-					or need to login in again
-
-			result => success
-				grade => json array, example:[{"className": "大学生心理健康", "credit": "0.5", "GPA": "4.50", "grade": "优秀"}, {"className": "大学英语Ⅱ", "credit": "3.0", "GPA": "4.10", "grade": "91"}]
+	*	input:
+	*		username
+	*		password
+	*	output:
+	*		result => fail
+	*			failReason => username or password is empty
+	*				or checkcode is empty
+	*				or checkout is wrong
+	*				or password is wrong
+	*				or need to login in again
+	*
+	*		result => success
+	*			grade => json array, example:[{"className": "大学生心理健康", "credit": "0.5", "GPA": "4.50", "grade": "优秀"}, {"className": "大学英语Ⅱ", "credit": "3.0", "GPA": "4.10", "grade": "91"}]
 	*/
 	$username = $_POST["username"];
 	$password = $_POST["password"];
