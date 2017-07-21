@@ -1,0 +1,63 @@
+<!--成绩查询界面-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>grade</title>
+    <link rel="stylesheet" href="css/grade.css">
+    <script src="js/background_cover.js"></script>
+</head>
+<body>
+    <!--显示总绩点的圆形盒子-->
+<div class="top round">
+        <!--绩点-->
+        <p>
+            <!--测试视觉效果用-->
+            5.01
+        </p>
+</div>
+<!--显示具体成绩的方型盒子-->
+<div class="footer">
+    <!--用一个固定流的表头覆盖住原先的表头，产生表头固定的效果-->
+    <div>
+        <table class="fixed_table">
+            <thead>
+                <tr>
+                    <th class="course">课程</th>
+                    <th>课程代码</th>
+                    <th>学分</th>
+                    <th>绩点</th>
+                    <th>成绩</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <!--用表格标签来记录数据-->
+    <table>
+        <thead class="real_thead">
+            <tr>
+                <th class="course">课程</th>
+                <th>课程代码</th>
+                <th>学分</th>
+                <th>绩点</th>
+                <th>成绩</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr></tr>
+            <!--数据的样式，js处理数据的时候参照此格式-->
+            <!--<tr>-->
+                <!--<td>计算机应用基础能力考核</td>-->
+                <!--<td>B1212151S</td>-->
+                <!--<td>1.0</td>-->
+                <!--<td>1.0</td>-->
+                <!--<td>不合格</td>-->
+            <!--</tr>-->
+
+        </tbody>
+
+    </table>
+</div>
+</body>
+</html>

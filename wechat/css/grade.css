@@ -1,0 +1,103 @@
+/*清除默认边距*/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*给body设置背景图片*/
+body{
+    /*width: 100%;*/
+    /*height: 100%;*/
+    background: url(../grade_images/grade_background.jpg) no-repeat;
+    box-sizing: border-box;
+    background-size: cover;
+    background-attachment: fixed;
+    /*overflow: hidden;*/
+    /*position: absolute;*/
+}
+/*最大的圆形盒子的位置*/
+/*设计成圆形的前提是这个div是正方形，目前没想到怎样用百分比实现正方形，先用具体像素了*/
+.top{
+    height: 220px;
+    width: 220px;
+    position: fixed;
+    left: 40%;
+    top: 11%;
+    background-color: white;
+    opacity: 0.5;
+}
+/*圆形的实现*/
+.round{
+    border-radius:50%;
+    overflow:hidden;
+}
+/*绩点*/
+.top p{
+    font-size:80px;
+    color: black;
+    text-align: center;
+    line-height: 100%;
+    margin-top: 30%;
+
+
+}
+/*下面的方型盒子*/
+.footer{
+    width: 90%;
+    height: 60%;
+    position: fixed;
+    left: 5%;
+    top: 28%;
+    /*background-color: blue;*/
+    box-sizing: border-box;
+    overflow: auto;
+}
+/*表格*/
+table
+{
+    font-family:"宋体";
+    width:100%;
+    border-collapse:collapse;
+    /*position: absolute;*/
+}
+/*表头元素*/
+th
+{
+    font-size:2.2em;
+    text-align:center;
+    padding-top:2%;
+    padding-bottom:2%;
+    /*background-color:#666;*/
+    color: black;;
+    font-weight:lighter;
+    border:1px solid black;
+}
+/*表格元素*/
+td{
+    text-align: center;
+    color: white;
+    font-size:1.5em;
+    border:1px solid black;
+    padding-top:2%;
+    padding-bottom:2%;
+}
+/*让课程的框变长一些好显示一些名字比较长的课程*/
+.course{
+    width: 40%;
+}
+/*表头*/
+thead{
+    background-color: #999;
+    /*position: fixed;*/
+    width: 85%;
+    /*background-attachment: fixed;*/
+}
+/*用来固定显示的表头*/
+.fixed_table{
+    position: fixed;
+    width: 90%;
+}
+/*真正的表头设成透明*/
+.real_thead{
+    opacity: 0;
+}
