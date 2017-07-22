@@ -54,4 +54,4 @@ Common.generateViewState(conn)
 # mark
 # fout = open( "CaptureViewState1.txt", "w" )
 # fout.close()
-print "CaptureViewState1.py"
+# print "CaptureViewState1.py"

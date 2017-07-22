@@ -5,6 +5,7 @@
 	*		password
 	*		checkcode
 	*	output:
+	*		PS: part of output is included in python file
 	*		result => fail
 	*			failReason => username or password is empty
 	*				or checkcode is empty

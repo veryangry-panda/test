@@ -7,6 +7,7 @@
 	*		schoolYear, example, 2016-2017
 	*		term, example, 1
 	*	output:
+	*		PS: part of output is included in python file
 	*		result => fail
 	*			failReason => username or password is empty
 	*				or checkcode is empty

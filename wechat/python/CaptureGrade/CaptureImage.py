@@ -20,7 +20,7 @@ try:
 except Exception,e:
 	print e
 
-print "CaptureImage.py"
+# print "CaptureImage.py"
 
 
 # mark
