@@ -1,4 +1,5 @@
 <!--绑定正方界面-->
+<!--绑定正方界面-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,12 +78,16 @@
 </html>
 <script>
 	document.querySelector("#submit").onclick=function(){
+		//当触发点击事件时，获取用户的名字和密码
 		var username=document.querySelector("#account").value
 		var password=document.querySelector("#password").value;
+		//对名字和密码是否为空进行判断
 		if(username!=''&&password!=''){
+			//如果不为空存入cookie中
 			set_cookie_func("username",username,30)
 			set_cookie_func("password",password,30)
-			window.location.href="test.html";
+			//进入验证码界面
+			window.location.href="verification.html";
 		}
 		
 	}
