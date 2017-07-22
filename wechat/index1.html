@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>wechat</title>
     <link rel="stylesheet" href="css/index.css">
+    <script src="js/cookie.js"></script>
     <script src="js/background_cover.js"></script>
 </head>
 <body>
@@ -22,7 +23,7 @@
         <!--大盒子的孙子-->
 
         <div class="box_father_child_son son2">
-            <a href="#" class="box_father_child_son_a">
+            <a href="#" class="box_father_child_son_a bfcsa1">
                 <img src="index1_images/帽子.png" class="son_img"/>
                 <p>成绩查询</p>
             </a>
@@ -47,3 +48,14 @@
 </div>
 </body>
 </html>
+<script>
+	document.querySelector(".bfcsa1").onclick=function(){
+		var username=get_cookie_func("username");
+		var password=get_cookie_func("password");
+		if(username=="" || password==""){
+			window.location.href="bind.html";
+		}else{
+			window.location.href="test.html";
+		}
+	}
+</script>
