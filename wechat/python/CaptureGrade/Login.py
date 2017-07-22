@@ -3,11 +3,13 @@
 import sys
 
 import requests
+import simplejson
 
 import Common
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
+
 
 url = "http://202.119.225.34/default2.aspx"
 
@@ -46,32 +48,34 @@ session = requests.session()
 conn = session.post(url, headers=header, data=data )
 content =  conn.content.decode("gb2312").encode("utf-8")
 # print content
+out = {}
 try:
     if content.index("验证码不正确") != -1:
-        out = {}
         out["result"] = "fail"
         out["failReason"] = "checkout is wrong"
-        print out
 except Exception, e:
     pass
 try:
     if content.index("密码不能为空") != -1:
-        print "password is empty"
+        out["result"] = "fail"
+        out["failReason"] = "password is empty"
 except:
     pass
 try:
     if content.index("密码错误") != -1:
-        print "password is wrong"
+        out["result"] = "fail"
+        out["failReason"] = "password is wrong"
 except:
     pass
 try:
     if content.index("重新登陆") != -1:
-        out = {}
         out["result"] = "fail"
         out["failReason"] = "need to login in again"
-        print out
 except:
     pass
+if out["result"] != "":
+    result = simplejson.dumps( out, encoding="utf-8", ensure_ascii=False )
+    print result
 # soup = bs4.BeautifulSoup( conn.content, "html.parser", from_encoding="utf-8" )
 
 

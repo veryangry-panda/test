@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>bind</title>
     <link rel="stylesheet" href="css/bind.css">
+    <script src="js/cookie.js"></script>
     <script>
         window.onload=function(){
 
@@ -55,43 +56,34 @@
 <body>
 <!--整个输入框用一个div包裹住-->
 <div class="submit_in">
-    <!--用一个表单，方便以后数据的上传与传递-->
-    <form action="#" class="submit_in_form">
-
         <p class="text_account">正方账号</p>
 
-        <p class="input_account">
-            <input type="text" class="account">
-        </p>
+
+            <input type="text" class="account" id="account">
+
 
         <p class="text_password">正方密码</p>
 
-        <p class="input_password">
-            <input type="password" class="password">
-        </p>
 
-        <!--<p class="text_verification">验证码</p>-->
-
-        <!--<p class="input_verification">-->
-            <!--<input type="text">-->
-        <!--</p>-->
-        <!--&lt;!&ndash;给验证码预留的显示框&ndash;&gt;-->
-        <!--<div class="verification">-->
-            <!--<input type="button" value="点击获取验证码" class="button_verification">-->
-            <!--<div class="picture_verification"></div>-->
-        <!--</div>-->
-
-        <p>
-            <input type="submit" class="button_submit">
-        </p>
-        <!--显示submit in的框-->
-        <div class="text_submit_in">SIGN IN</div>
-    </form>
+            <input type="password" class="password" id="password">
 
 
 
+            <input type="submit" class="button_submit" value="SIGN IN" id="submit">
 
 
 </div>
 </body>
 </html>
+<script>
+	document.querySelector("#submit").onclick=function(){
+		var username=document.querySelector("#account").value
+		var password=document.querySelector("#password").value;
+		if(username!=''&&password!=''){
+			set_cookie_func("username",username,30)
+			set_cookie_func("password",password,30)
+			window.location.href="test.html";
+		}
+		
+	}
+</script>

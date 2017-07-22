@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <title>grade</title>
     <link rel="stylesheet" href="css/grade.css">
+    <script src="js/cookie.js"></script>
     <script src="js/background_cover.js"></script>
 </head>
-<body>
+<body onload="fn()">
     <!--显示总绩点的圆形盒子-->
 <div class="top round">
         <!--绩点-->
@@ -24,7 +25,6 @@
             <thead>
                 <tr>
                     <th class="course">课程</th>
-                    <th>课程代码</th>
                     <th>学分</th>
                     <th>绩点</th>
                     <th>成绩</th>
@@ -37,7 +37,6 @@
         <thead class="real_thead">
             <tr>
                 <th class="course">课程</th>
-                <th>课程代码</th>
                 <th>学分</th>
                 <th>绩点</th>
                 <th>成绩</th>
@@ -45,15 +44,22 @@
         </thead>
 
         <tbody>
-            <tr></tr>
+            <!--<tr></tr>
             <!--数据的样式，js处理数据的时候参照此格式-->
             <!--<tr>-->
-                <!--<td>计算机应用基础能力考核</td>-->
-                <!--<td>B1212151S</td>-->
+                <!--<td>计算机应用</td>-->
                 <!--<td>1.0</td>-->
                 <!--<td>1.0</td>-->
                 <!--<td>不合格</td>-->
-            <!--</tr>-->
+            <!--</tr>
+            <tr>
+                <td>计算机应用</td>
+                <td>1.0</td>
+                <td>1.0</td>
+                <td>不合格</td>
+            </tr>-->
+
+
 
         </tbody>
 
@@ -61,3 +67,46 @@
 </div>
 </body>
 </html>
+<script>
+	
+	
+	function fn(){
+		var str=window.location.search;
+        console.log(str)
+		var arr=str.split('&');
+		var checkcode=arr[0];
+		var schoolYear=arr[1];
+		var term=arr[2];
+		var username=get_cookie_func("username");
+		var password=get_cookie_func("password");
+		var ajax=new XMLHttpRequest();
+		ajax.open('post','php/CaptureGrade/CaptureScore.php');
+		ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		ajax.send('username='+username+'&password='+password+'&checkcode='+checkcode+'&schoolYear='+schoolYear+'&term='+term);
+		ajax.onreadystatechange=function(){
+			if(ajax.readyState==4&&ajax.status==200){
+                console.log(ajax.responseText)
+				var jsObj=JSON.parse(ajax.responseText);
+				console.log(jsObj)
+				if(jsObj.length>3){
+					var jstr="";
+					
+					for(var i=0;i<jsObj.length;i++){
+						jstr+='<tr>';
+						jstr+='<td>'+jsObj[i].className+'</td>'
+						jstr+='<td>'+jsObj[i].credit+'</td>'
+						jstr+='<td>'+jsObj[i].GPA+'</td>'
+						jstr+='<td>'+jsObj[i].grade+'</td>'
+//						jstr+='<td>'++'</td>'
+						jstr+='</tr>';
+					}
+					var tbody=document.querySelector("#tbody");
+					tbody.innerHTML=jstr;
+				}else{
+					doucment.body.innerHTML=jsObj.failReason;
+					window.location.href="bind.html";
+				}
+			}
+		}
+	}
+</script>

@@ -27,14 +27,24 @@
 			ajax.send();
 			ajax.onreadystatechange=function(){
 				if(ajax.readyState==4&&ajax.status==200){
-					console.log( ajax.responseText)
-					var jsObj=JSON.parse(ajax.responseText);
-					console.log(jsObj.result)
-					if(jsObj.result=="success"){
-						//设置验证码图片
-						document.querySelector("#placeimg").style.backgroundImage="url(value/images/CaptureGrade/checkcode.jpg)"
-						clearInterval(timer);
+					
+					try{
+						var jsObj=JSON.parse(ajax.responseText);
+						if(!JSON.parse(ajax.responseText)){
+							throw 'error';
+						}
+						console.log(jsObj.result)
+						if(jsObj.result=="success"){
+							//设置验证码图片
+							document.querySelector("#placeimg").style.backgroundImage="url(value/images/CaptureGrade/checkcode.jpg)"
+							clearInterval(timer);
+						}
+					}catch(er){
+						if(er=='error'){
+							document.body.innerHTML="系统异常，请稍后再试"
+						}
 					}
+					
 				}
 			}
 		},1000)
@@ -50,7 +60,7 @@
 		str+=schoolYear;
 		str+='&';
 		str+=term;
-		if(checkcode!=''&&schoolYear!=''&&tetm!=''&&term!=''){
+		if(checkcode!=''&&schoolYear!=''&&term!=''){
 			window.location.href="grade.html?"+str;
 		}
 		
