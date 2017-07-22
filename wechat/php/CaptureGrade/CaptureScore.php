@@ -18,6 +18,7 @@
 	*
 	*		result => success
 	*			grade => json array, example:[{"className": "大学生心理健康", "credit": "0.5", "GPA": "4.50", "grade": "优秀"}, {"className": "大学英语Ⅱ", "credit": "3.0", "GPA": "4.10", "grade": "91"}]
+	*			GPA => 5.01
 	*/
 
 	$username = $_POST["username"];
@@ -28,7 +29,7 @@
 
 	// $username = "B16041718";
 	// $password = "";
-	// $checkcode = "h5ld";
+	// $checkcode = "4hc1";
 	// $schoolYear = "2016-2017";
 	// $term = "2";
 	if( $username == "" || $password == "" ) {

@@ -1,4 +1,4 @@
-
+# -*- coding:UTF-8 -*-
 
 import bs4
 import simplejson
@@ -9,6 +9,8 @@ sys.setdefaultencoding('utf8')
 
 import Common
 import requests
+
+
 
 url = "http://202.119.225.34/xscj_gc.aspx?xh=" + Common.getUsername() + "&xm=%D5%C5%CB%C9%CC%CE&gnmkdm=N121605"
 header = {
@@ -56,6 +58,13 @@ for tr in trs:
 tmp = {}
 tmp["result"] = "success"
 tmp["grade"] = result
+
+soup = bs4.BeautifulSoup(conn.content, "html.parser", from_encoding="utf-8")
+a = soup.find("span", id="pjxfjd").find("b")
+GPA = a.get_text()
+
+
+tmp["GPA"] = GPA[7:30]
 
 
 result = simplejson.dumps(tmp,encoding='utf-8',ensure_ascii=False)
