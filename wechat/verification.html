@@ -1,72 +1,11 @@
 <!--绑定正方界面-->
+<!--绑定正方界面-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>bind</title>
     <link rel="stylesheet" href="css/verification.css">
-    <!--疑似外链式有点问题，先用内嵌式-->
-    <script>
-        window.onload=function(){
-            //点击获取验证码事件
-            document.querySelector(".button_verification").onclick=function(){
-                var Account=document.querySelector(".account").value;
-                var Password=document.querySelector(".password").value;
-                //console.log(Account)
-                //console.log(Password)
-                if(Account==""||Password==""){
-                    document.querySelector(".picture_verification").innerHTML="请正确输入密码或账号"
-                }else{
-                    //定义异步对象
-                    var ajax=new XMLHttpRequest();
-                    //用post请求数据
-                    ajax.open('post','signin.php')
-                    ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-                    //发送账号和密码
-                    ajax.send('Account='+Account+'&Password'+Password);
-                    //注册事件
-                    ajax.onreadystatechange=function(){
-                        if(ajax.readyState==4&&ajax.status==200){
-                            console.log(ajax.responseText);
-                            //把传送过来的数据转换为json对象
-                            var jsOBJ=JSON.parse(ajax.responseText);
-                            document.querySelector(".picture_verification").innerHTML=jsOBJ.YZM;
-                        }
-                    }
-                }
-            }
-            //点击submit返回绑定成功
-            document.querySelector(".button_submit").onclick=function(){
-                //判断是否输入验证码
-                var YZM=document.querySelector(".input_verification").firstChild.value;
-                //console.log(YZM);
-                if(YZM==""){
-//					document.querySelector(".input_verification").firstChild.value
-                    //不做任何提示，后期维护再做
-                }else{
-                    //定义异步对象
-                    var ajax=new XMLHttpRequest();
-                    //用get请求
-                    ajax.open('get','Succes.php');
-                    //发送请求
-                    ajax.send();
-                    //注册事件
-                    ajax.onreadystatechange=function(){
-                        if(ajax.readyState==4&&ajax.status==200){
-                            console.log(ajax.responseText);
-                            //转化为json对象
-                            var jsOBJ=JSON.parse(ajax.responseText);
-                            document.querySelector("body").innerHTML=jsOBJ.Succes;
-                        }
-                    }
-
-                }
-            }
-
-        }
-
-
-    </script>
     <script>
         window.onload=function(){
 
@@ -114,33 +53,79 @@
     </script>
 
 </head>
-<body>
+<body onload="fn()">
 <!--整个输入框用一个div包裹住-->
 <div class="submit_in">
-    <!--用一个表单，方便以后数据的上传与传递-->
-    <form action="#" class="submit_in_form">
-        <p class="text_verification">验证码</p>
-
-        <p class="input_verification">
-        <input type="text">
-        </p>
-        <!--给验证码预留的显示框-->
-        <div class="verification">
-        <input type="button" value="点击获取验证码" class="button_verification">
-        <div class="picture_verification"></div>
-        </div>
-
-        <p>
-            <input type="submit" class="button_submit">
-        </p>
-        <!--显示submit in的框-->
-        <div class="text_submit_in">SUBMIT IN</div>
-    </form>
-
-
-
-
+    <!--<input type="text" placeholder="请输入你需要查询的学年" id="schoolYear"/><br />-->
+    <!--<input type="text" placeholder="请输入你需要查询的学期" id="term"/><br />-->
+    <p class="text_schoolYear">请选择你需要查询的学年</p>
+    <select name="学年" id="schoolYear" class="select_year">
+        <option value="2016-2017">2016-2017</option>
+        <!--<option value="2017-2018">2017-2018</option>
+        <option value="2018-2019">2018-2019</option>
+        <option value="2019-2020">2019-2020</option>-->
+    </select>
+    <p>请选择你需要查询的学期</p>
+    <select name="学期" id="term" class="select_term">
+        <option value="1">1</option>
+        <option value="2">2</option>
+    </select>
+    <input type="text" placeholder="请输入验证码" id="checkcode">
+    <div class="img" id="placeimg"></div>
+    <input type="submit" value="查询成绩" id="submit"/>
 
 </div>
 </body>
 </html>
+<script>
+	//触发一个onload事件
+	function fn(){
+		var timer=setInterval(function(){
+			var ajax=new XMLHttpRequest();
+			ajax.open("get","php/CaptureGrade/CaptureCheckcode.php");
+			ajax.send();
+			ajax.onreadystatechange=function(){
+				if(ajax.readyState==4&&ajax.status==200){
+					//json解析的异常处理
+					try{
+						var jsObj=JSON.parse(ajax.responseText);
+						if(!JSON.parse(ajax.responseText)){
+							throw 'error';
+						}
+						console.log(jsObj.result)
+						if(jsObj.result=="success"){
+							//设置验证码图片
+							document.querySelector("#placeimg").style.backgroundImage="url(value/images/CaptureGrade/checkcode.jpg)"
+							clearInterval(timer);
+						}
+					}catch(er){
+						if(er=='error'){
+							document.body.innerHTML="系统异常，请稍后再试"
+						}
+					}
+					
+				}
+			}
+		},1000)
+		
+	}
+	//按钮的点击事件
+	document.querySelector("#submit").onclick=function(){
+		var checkcode=document.querySelector("#checkcode").value;
+		console.log(checkcode)
+		var schoolYear=document.querySelector("#schoolYear").value;
+		console.log(schoolYear)
+		var term=document.querySelector("#term").value;
+		console.log(term)
+		var str='';
+		str+=checkcode;
+		str+='&';
+		str+=schoolYear;
+		str+='&';
+		str+=term;
+		if(checkcode!=''&&schoolYear!=''&&term!=''){
+			window.location.href="grade.html?"+str;
+		}
+		
+	}
+</script>
