@@ -1,15 +1,18 @@
 <!--成绩查询界面-->
-<!--成绩查询界面-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <progress id='progress' style='width:100px' value='5' max='100'></progress>
+    <!--<meter id='progress' style='width:100px' value='5' min='1' max='100'></meter>-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>grade</title>
     <link rel="stylesheet" href="css/grade.css">
     <script src="js/cookie.js"></script>
-    <script src="js/background_cover.js"></script>
+    <script src="js/grade.js"></script>
+    
 </head>
-<body onload="fn()">
+<body >
     <!--显示总绩点的圆形盒子-->
 <div class="top round">
         <!--绩点-->
@@ -68,59 +71,4 @@
 </div>
 </body>
 </html>
-<script>
-	
-	
-	function fn(){
-		var str=window.location.search;
-//		console.log(str)
-		var arr=str.split('&');
-		var checkcode=arr[0].slice(1);
-//		console.log(checkcode)
-		var schoolYear=arr[1];
-//		console.log(schoolYear)
-		var term=arr[2];
-//		console.log(term)
-		var username=get_cookie_func("username");
-//		console.log(username)
-		var password=get_cookie_func("password");
-//		console.log(password)
-		var ajax=new XMLHttpRequest();
-		ajax.open('post','php/CaptureGrade/CaptureScore.php');
-		ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-		ajax.send('username='+username+'&password='+password+'&checkcode='+checkcode+'&schoolYear='+schoolYear+'&term='+term);
-		ajax.onreadystatechange=function(){
-			if(ajax.readyState==4&&ajax.status==200){
-				var jsObj=JSON.parse(ajax.responseText);
-//				console.log(jsObj)
-//				console.log(jsObj.length);//underfined
-//				console.log(jsObj.grade.length)
-//				for(var i=0;i<jsObj.grade.length;i++){
-//					console.log(jsObj.grade[i]);
-//				}
-//				console.log(jsObj.result)
-				if(jsObj.result=="success"){
-                    console.log( jsObj["GPA"] )
-					var strJson='';
-					for(var i=0;i<jsObj.grade.length;i++){
-						strJson+='<tr>'
-						strJson+='<td>'+jsObj.grade[i].className+'</td>'
-						strJson+='<td>'+jsObj.grade[i].credit+'</td>'
-						strJson+='<td>'+jsObj.grade[i].GPA+'</td>'
-						strJson+='<td>'+jsObj.grade[i].grade+'</td>'
-						strJson+='</tr>'
-					}
-					var tbody=document.querySelector("#tbody")
-					tbody.innerHTML=strJson;
-				}else{
-					document.body.innerHTML=jsObj.result;
-					document.body.innerHTML=jsObj.failReason;
-					window.location.href="bind.html"
-					
-				}
-				
-			}
-		}
-	}
-</script>
 

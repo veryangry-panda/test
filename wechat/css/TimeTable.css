@@ -1,0 +1,52 @@
+*{
+     margin: 0;
+     padding:0;
+ }
+
+
+/*设置背景图片*/
+body{
+    background:url("../value/images/TimeTable_images/TimeTable.jpg");
+    box-sizing: border-box;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+/*表格*/
+table
+{
+    font-family:"宋体";
+    width: 97%;
+    border-collapse: collapse;
+    /*position: absolute;*/
+    /*position: fixed;*/
+}
+/*表头元素*/
+th
+{
+    font-size:1.5em;
+    text-align:center;
+    padding-top:2%;
+    padding-bottom:2%;
+    /*background-color:black;*/
+    opacity: 0.4;
+    color: black;
+    font-weight:lighter;
+    border-style: none;
+}
+
+/*表格元素*/
+td{
+    text-align: center;
+    color: black;
+    font-size:1.25em;
+    border-style:none;
+    padding-top:2%;
+    padding-bottom:2%;
+    opacity: 0.4;
+}
+/*空白部分设置一个宽度*/
+.space{
+    width:15%;
+}

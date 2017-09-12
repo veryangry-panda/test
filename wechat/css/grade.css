@@ -8,7 +8,7 @@
 body{
     /*width: 100%;*/
     /*height: 100%;*/
-    background: url(../grade_images/grade_background.jpg) no-repeat;
+    background: url(../value/images/grade_images/grade_background.jpg) no-repeat;
     box-sizing: border-box;
     background-size: cover;
     background-attachment: fixed;
@@ -18,11 +18,11 @@ body{
 /*最大的圆形盒子的位置*/
 /*设计成圆形的前提是这个div是正方形，目前没想到怎样用百分比实现正方形，先用具体像素了*/
 .top{
-    height: 220px;
-    width: 220px;
+    height: 100px;
+    width: 100px;
     position: fixed;
-    left: 40%;
-    top: 11%;
+    left: 35%;
+    top: 7%;
     background-color: white;
     opacity: 0.5;
 }
@@ -33,7 +33,7 @@ body{
 }
 /*绩点*/
 .top p{
-    font-size:80px;
+    font-size:42px;
     color: black;
     text-align: center;
     line-height: 100%;
@@ -63,7 +63,7 @@ table
 /*表头元素*/
 th
 {
-    font-size:2.2em;
+    font-size:1.2em;
     text-align:center;
     padding-top:2%;
     padding-bottom:2%;
@@ -76,14 +76,14 @@ th
 td{
     text-align: center;
     color: white;
-    font-size:1.5em;
+    font-size:1.2em;
     border:1px solid black;
     padding-top:2%;
     padding-bottom:2%;
 }
 /*让课程的框变长一些好显示一些名字比较长的课程*/
 .course{
-    width: 40%;
+    width: 50%;
 }
 /*表头*/
 thead{

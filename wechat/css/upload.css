@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background:url(../value/images/uppload_images/upload_background.jpg) no-repeat;
+    box-sizing: border-box;
+    background-size: cover;
+}
+/*选择文件*/
+.file{
+    display: inline-block;
+    width: 75%;
+    height: 10%;
+    position: absolute;
+    top:27%;
+    left: 12%;
+    text-align: center;
+    /*line-height:100%;*/
+    /*text-decoration: none;*/
+    font-size:50px;
+    font-weight:bold;
+    font-family:"宋体";
+    color: white;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding-top:5%;
+}
+
+div{
+    width: 50%;
+    height: 40%;
+    background-color: black;
+    opacity: 0.2;
+    position: absolute;
+    top:35%;
+    left: 22%;
+}
+/*提交*/
+.submit{
+    display: inline-block;
+    width: 25%;
+    height: 5%;
+    /*background-color: red;*/
+    position: absolute;
+    top:77%;
+    left: 55%;
+    text-align: center;
+    line-height:100%;
+    text-decoration: none;
+    font-size:50px;
+    font-weight:bold;
+    font-family:"宋体";
+    color: white;
+    cursor: pointer;
+    background-color:transparent;
+    border: none;
+}

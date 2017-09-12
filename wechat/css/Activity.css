@@ -1,0 +1,58 @@
+/*清除默认边距*/
+*{
+    padding: 0;
+    margin: 0;
+}
+
+/*设置背景图片*/
+body{
+    background: url("../value/images/Activity_images/Activity.jpg") no-repeat;
+    box-sizing: border-box;
+    background-size: cover;
+    /*background-attachment: fixed;*/
+}
+
+/*表格*/
+table
+{
+    font-family:"宋体";
+    width:100%;
+    border-collapse:collapse;
+    /*position: absolute;*/
+
+
+}
+/*表头元素*/
+th
+{
+    font-size:1.25em;
+    text-align:center;
+    padding-top:2%;
+    padding-bottom:2%;
+    /*background-color:black;*/
+    /*opacity: 0.1;*/
+    color: black;
+    font-weight:bolder;
+    border:1px solid black;
+}
+
+/*表格元素*/
+td{
+    text-align: center;
+    color: black;
+    font-size:1.0em;
+    border:1px solid black;
+    padding-top:2%;
+    padding-bottom:2%;
+}
+
+.whole{
+    width: 80%;
+    height: 60%;
+    position: fixed;
+    left: 10%;
+    top: 20%;
+    /*background-color: blue;*/
+    box-sizing: border-box;
+    overflow: auto;
+}

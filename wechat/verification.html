@@ -1,71 +1,28 @@
 <!--绑定正方界面-->
-<!--绑定正方界面-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>bind</title>
     <link rel="stylesheet" href="css/verification.css">
-    <script>
-        window.onload=function(){
-
-            var winWidth = 0;
-            var winHeight = 0;
-            function findDimensions() //函数：获取尺寸
-            {
-                //获取窗口宽度
-                if (window.innerWidth){
-                    winWidth = window.innerWidth;
-                }
-                else if ((document.body) && (document.body.clientWidth)) {
-                    winWidth = document.body.clientWidth;
-                }
-                //获取窗口高度
-                if (window.innerHeight) {
-                    winHeight = window.innerHeight;
-                }
-                else if ((document.body) && (document.body.clientHeight)) {
-                    winHeight = document.body.clientHeight;
-                }
-                //通过深入Document内部对body进行检测，获取窗口大小
-                if (document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth) {
-                    winHeight = document.documentElement.clientHeight;
-                    winWidth = document.documentElement.clientWidth;
-                }
-
-            }
-            findDimensions();
-            console.log(winHeight)
-            console.log(winWidth)
-            //设置背景图片，使背景图片填充满屏幕
-            var body=document.getElementsByTagName("body")[0];
-//          body.style.width=winWidth;
-//          body.style.height=winHeight;
-            var str='';
-            str+=winWidth;
-            str+='px ';
-            str+=winHeight;
-            str+='px'
-            body.style.backgroundSize=str;
-            //
-
-        }
-    </script>
+    <script src="js/cookie.js"></script>
+    <script src="js/verification.js"></script>
 
 </head>
-<body onload="fn()">
+<body>
 <!--整个输入框用一个div包裹住-->
 <div class="submit_in">
     <!--<input type="text" placeholder="请输入你需要查询的学年" id="schoolYear"/><br />-->
     <!--<input type="text" placeholder="请输入你需要查询的学期" id="term"/><br />-->
-    <p class="text_schoolYear">请选择你需要查询的学年</p>
+    <p class="text_schoolYear">请选择您需要查询的学年</p>
     <select name="学年" id="schoolYear" class="select_year">
         <option value="2016-2017">2016-2017</option>
         <!--<option value="2017-2018">2017-2018</option>
         <option value="2018-2019">2018-2019</option>
         <option value="2019-2020">2019-2020</option>-->
     </select>
-    <p>请选择你需要查询的学期</p>
+    <p>请选择您需要查询的学期</p>
     <select name="学期" id="term" class="select_term">
         <option value="1">1</option>
         <option value="2">2</option>
@@ -77,55 +34,3 @@
 </div>
 </body>
 </html>
-<script>
-	//触发一个onload事件
-	function fn(){
-		var timer=setInterval(function(){
-			var ajax=new XMLHttpRequest();
-			ajax.open("get","php/CaptureGrade/CaptureCheckcode.php");
-			ajax.send();
-			ajax.onreadystatechange=function(){
-				if(ajax.readyState==4&&ajax.status==200){
-					//json解析的异常处理
-					try{
-						var jsObj=JSON.parse(ajax.responseText);
-						if(!JSON.parse(ajax.responseText)){
-							throw 'error';
-						}
-						console.log(jsObj.result)
-						if(jsObj.result=="success"){
-							//设置验证码图片
-							document.querySelector("#placeimg").style.backgroundImage="url(value/images/CaptureGrade/checkcode.jpg)"
-							clearInterval(timer);
-						}
-					}catch(er){
-						if(er=='error'){
-							document.body.innerHTML="系统异常，请稍后再试"
-						}
-					}
-					
-				}
-			}
-		},1000)
-		
-	}
-	//按钮的点击事件
-	document.querySelector("#submit").onclick=function(){
-		var checkcode=document.querySelector("#checkcode").value;
-		console.log(checkcode)
-		var schoolYear=document.querySelector("#schoolYear").value;
-		console.log(schoolYear)
-		var term=document.querySelector("#term").value;
-		console.log(term)
-		var str='';
-		str+=checkcode;
-		str+='&';
-		str+=schoolYear;
-		str+='&';
-		str+=term;
-		if(checkcode!=''&&schoolYear!=''&&term!=''){
-			window.location.href="grade.html?"+str;
-		}
-		
-	}
-</script>

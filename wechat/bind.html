@@ -1,57 +1,13 @@
 <!--绑定正方界面-->
-<!--绑定正方界面-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>bind</title>
     <link rel="stylesheet" href="css/bind.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="js/cookie.js"></script>
-    <script>
-        window.onload=function(){
-
-            var winWidth = 0;
-            var winHeight = 0;
-            function findDimensions() //函数：获取尺寸
-            {
-                //获取窗口宽度
-                if (window.innerWidth){
-                    winWidth = window.innerWidth;
-                }
-                else if ((document.body) && (document.body.clientWidth)) {
-                    winWidth = document.body.clientWidth;
-                }
-                //获取窗口高度
-                if (window.innerHeight) {
-                    winHeight = window.innerHeight;
-                }
-                else if ((document.body) && (document.body.clientHeight)) {
-                    winHeight = document.body.clientHeight;
-                }
-                //通过深入Document内部对body进行检测，获取窗口大小
-                if (document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth) {
-                    winHeight = document.documentElement.clientHeight;
-                    winWidth = document.documentElement.clientWidth;
-                }
-
-            }
-            findDimensions();
-            console.log(winHeight)
-            console.log(winWidth)
-            //设置背景图片，使背景图片填充满屏幕
-            var body=document.getElementsByTagName("body")[0];
-//          body.style.width=winWidth;
-//          body.style.height=winHeight;
-            var str='';
-            str+=winWidth;
-            str+='px ';
-            str+=winHeight;
-            str+='px'
-            body.style.backgroundSize=str;
-            //
-
-        }
-    </script>
+    <script type="text/javascript" src="js/bind.js"></script>
 
 </head>
 <body>
@@ -76,19 +32,3 @@
 </div>
 </body>
 </html>
-<script>
-	document.querySelector("#submit").onclick=function(){
-		//当触发点击事件时，获取用户的名字和密码
-		var username=document.querySelector("#account").value
-		var password=document.querySelector("#password").value;
-		//对名字和密码是否为空进行判断
-		if(username!=''&&password!=''){
-			//如果不为空存入cookie中
-			set_cookie_func("username",username,30)
-			set_cookie_func("password",password,30)
-			//进入验证码界面
-			window.location.href="verification.html";
-		}
-		
-	}
-</script>

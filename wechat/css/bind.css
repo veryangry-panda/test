@@ -7,7 +7,7 @@
 body{
 
     font-family:"华文琥珀";
-    background: url(../bind_images/bind_background.jpg) no-repeat ;
+    background: url(../value/images/bind_images/bind_background.jpg) no-repeat ;
 
 }
 
@@ -23,16 +23,8 @@ body{
 }
 
 
-/*表单标签*/
-.submit_in_form{
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    /*position: absolute;*/
-}
-
 /*给表单里的p标签先设置一个总的属性控制一下大小*/
-.submit_in_form p{
+.submit_in p{
     width: 100%;
     height: 8%;
     margin-left: 10%;
@@ -42,60 +34,57 @@ body{
 
 /*给第一个p标签设置外边距把整体顶下来*/
 .text_account{
-    margin-top: 15%;
-    font-size: 35px;
+    margin-top: 20%;
+    font-size: 20px;
     font-weight:bolder;
     /*line-height:300%;*/
 
     color: white;
 }
 /*调整账号输入框的大小*/
-.input_account input{
-    width: 80%;
-    height: 100%;
+.account{
+    width: 70%;
+    height: 10%;
     display: inline-block;
     margin-top:10%;
+    margin-left: 10%;
 }
 
 /*密码文字*/
 .text_password{
-    font-size: 35px;
+    font-size: 20px;
     font-weight:bolder;
     /*line-height:300%;*/
-    text-align: left;
-    margin-top:21%;
+    margin-top:10%;
     color: white;
 }
 /*密码框*/
-.input_password input{
-    width: 80%;
-    height: 100%;
+.password{
+    width: 70%;
+    height: 10%;
     display: inline-block;
     margin-top:10%;
+    margin-left: 10%;
 }
 
 /*提交按钮*/
 .button_submit{
-    width: 30.5%;
-    height: 100%;
-    margin-top: 24%;
-    margin-left: 20%;
-    color: white;
+    width: 40%;
+    height: 10%;
+    margin-top: 10%;
+    margin-left: 34%;
+    color: black;
     /*把提交按钮弄成透明色*/
-    opacity: 0;
-}
-/*显示sign in字体的div框*/
-.text_submit_in{
-    width: 50%;
-    height: 7.5%;
-    margin-left: 30%;
-    margin-top: 15%;
-    font-size: 30px;
+    opacity: 1;
+    cursor: pointer;
+    background-color:transparent;
+    border: none;
+    font-size: 18px;
     color: white;
     font-weight: bolder;
     line-height: 100%;
+    text-align: center;
 }
-
 
 
 

@@ -3,10 +3,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0" />
     <title>wechat</title>
     <link rel="stylesheet" href="css/index.css">
     <script src="js/cookie.js"></script>
-    <script src="js/background_cover.js"></script>
+   	<script src="js/index1.js"></script>
 </head>
 <body>
 <!--最大的盒子-->
@@ -16,7 +17,7 @@
         <!--大盒子的孙子-->
         <div class="box_father_child_son son1">
             <a href="#" class="box_father_child_son_a">
-                <img src="index1_images/铃铛.png" class="son_img"/>
+                <img src="value/images/index1_images/铃铛.png" class="son_img"/>
                 <p>课表查询</p>
             </a>
         </div>
@@ -24,7 +25,7 @@
 
         <div class="box_father_child_son son2">
             <a href="#" class="box_father_child_son_a bfcsa1">
-                <img src="index1_images/帽子.png" class="son_img"/>
+                <img src="value/images/index1_images/帽子.png" class="son_img"/>
                 <p>成绩查询</p>
             </a>
         </div>
@@ -32,7 +33,7 @@
 
         <div class="box_father_child_son son3">
             <a href="#" class="box_father_child_son_a">
-                <img src="index1_images/跑操.png" class="son_img"/>
+                <img src="value/images/index1_images/跑操.png" class="son_img"/>
                 <p>跑操查询</p>
             </a>
         </div>
@@ -41,23 +42,10 @@
 
     <div class="box_father_child bfc2">
         <a href="#" class="box_father_child_son_a">
-            <img src="index1_images/活动.png" class="bfc2_img"/>
+            <img src="value/images/index1_images/活动.png" class="bfc2_img"/>
             <p class="bfc2_p">活动查询</p>
         </a>
     </div>
 </div>
 </body>
 </html>
-<script>
-	document.querySelector(".bfcsa1").onclick=function(){
-		//从用户的设备获取cookie
-		var username=get_cookie_func("username");
-		var password=get_cookie_func("password");
-		//判断cookie是否存在，不存在进入绑定界面，存在进入验证码界面
-		if(username=="" || password==""){
-			window.location.href="bind.html";
-		}else{
-			window.location.href="verification.html";
-		}
-	}
-</script>

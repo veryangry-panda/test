@@ -7,106 +7,83 @@
 body{
 
     font-family:"华文琥珀";
-    background: url(../verification_images/verification_background.jpg) no-repeat ;
+    background: url(../value/images/verification_images/bind_background.jpg) no-repeat ;
 
 
 }
 /*大div标签的属性值*/
 .submit_in{
-    width: 44%;
-    height: 30%;
+    width: 50%;
+    height: 40%;
 
     position: absolute;
-    top: 32%;
-    left: 21%;
+    top: 35%;
+    left: 15%;
     box-sizing: border-box;
-}
-
-
-/*表单标签*/
-.submit_in_form{
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    /*position: absolute;*/
 }
 
 /*给表单里的p标签先设置一个总的属性控制一下大小*/
-.submit_in_form p{
+.submit_in p{
     width: 100%;
     height: 8%;
     /*margin-left: 10%;*/
-    /*position: relative;*/
-    /*margin-top: 5%;*/
-
-}
-
-
-/*验证码文字*/
-.text_verification{
-    font-size: 50px;
-    font-weight:bolder;
-    /*line-height:300%;*/
-    text-align: center;
-    margin-top:10%;
+    font-size: 13px;
+    /*font-weight:bold;*/
+    line-height:100%;
+    /*text-align: center;*/
     color: white;
-}
-/*验证码输入框*/
-.input_verification input{
-    width: 65%;
-    height: 130%;
-    display: inline-block;
-    margin-top:18%;
-    margin-left: 15%;
-}
-
-.verification{
-    width: 80%;
-    height: 20%;
-    /*background-color: red;*/
-    margin-top: 15%;
-    margin-left: 10%;
-
-}
-.verification input{
-    width: 30%;
-    height:50%;
-    margin-top: 20%;
-    float: left;
-    margin-left: 6%;
-}
-/*验证码预留框*/
-.picture_verification{
-    float: left;
-    width: 45%;
-    height: 50%;
-    border: 1px solid #888;
-    margin-left: 10%;
-    margin-top: 20%;
-    display: inline-block;
-}
-/*提交按钮*/
-.button_submit{
-    width: 38.5%;
-    height: 100%;
-    margin-top: 7%;
-    margin-left: 30%;
-    color: white;
-    /*把提交按钮弄成透明色*/
-    opacity: 0;
-}
-/*显示submit in字体的div框*/
-.text_submit_in{
-    width: 50%;
-    height: 7.5%;
-    margin-left: 30%;
     margin-top: 5%;
-    font-size: 30px;
+    margin-left: 10%;
+}
+.submit_in .text_schoolYear{
+    margin-top: 5%;
+}
+
+.select_year{
+    display: inline-block;
+    width: 80%;
+    height: 8%;
+    margin-left: 10%;
+    margin-top: 3%;
+}
+
+.select_term{
+    display: inline-block;
+    width: 80%;
+    height: 8%;
+    margin-left: 10%;
+    margin-top: 3%;
+}
+
+#checkcode{
+    display: inline-block;
+    width: 78%;
+    height: 8%;
+    margin-left: 10%;
+    margin-top: 7%;
+}
+
+#placeimg{
+    width: 40%;
+    height: 13%;
+    border: groove;
+    margin-left: 25%;
+    margin-top: 5%;
+}
+
+#submit{
+    opacity: 1;
+    cursor: pointer;
+    background-color:transparent;
+    border: none;
+    font-size: 16px;
     color: white;
     font-weight: bolder;
     line-height: 100%;
+    text-align: center;
+    margin-left: 50%;
+    margin-top: 5%;
 }
-
 
 
 
