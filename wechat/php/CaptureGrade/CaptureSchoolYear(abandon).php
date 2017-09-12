@@ -23,7 +23,7 @@
 
 	// $username = "B16041718";
 	// $password = "";
-	// $checkcode = "8l1h";
+	// $checkcode = "4m1y";
 	if( $username == "" || $password == "" ) {
 		$arr = Array(
 			"result" => "fail",

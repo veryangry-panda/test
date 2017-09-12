@@ -73,7 +73,7 @@ try:
         out["failReason"] = "need to login in again"
 except:
     pass
-if out["result"] != "":
+if out.has_key( "result" ):
     result = simplejson.dumps( out, encoding="utf-8", ensure_ascii=False )
     print result
 # soup = bs4.BeautifulSoup( conn.content, "html.parser", from_encoding="utf-8" )
