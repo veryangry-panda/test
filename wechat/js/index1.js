@@ -19,4 +19,10 @@ function JudgeAccount() {
 			window.location.href = "verification.html";
 		}
 	}
+    document.querySelector("#TimeTable").onclick = function() {
+            window.location.href = "TimeTable.html";
+    }
+    document.querySelector("#Activity").onclick = function() {
+        window.location.href = "Activity.html";
+    }
 }
