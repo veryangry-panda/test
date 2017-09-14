@@ -1,8 +1,7 @@
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}
-.bg{
-    background-image: url("../value/images/download_images/download_background.jpg");
+body{
+    background: url(../value/images/download_images/download_background.jpg);
     background-repeat:no-repeat;
-    position: absolute;
     background-size: cover;
     box-sizing: border-box;
 }
@@ -11,7 +10,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input
     position: relative;
     background-color: grey;
     display: inline-block;
-    margin-top: 52%;
+    margin-top: 10%;
     margin-left: 15%;
     font-size: 70px;
     opacity: 0.5;
@@ -46,9 +45,39 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input
     font-size: 70px;
     opacity: 0.5;
 }
+.sub5{
+    width: 69%;
+    position: relative;
+    background-color: grey;
+    display: inline-block;
+    margin-top: 10%;
+    margin-left: 15%;
+    font-size: 70px;
+    opacity: 0.5;
+}
+.sub6{
+    width: 69%;
+    position: relative;
+    background-color: grey;
+    display: inline-block;
+    margin-top: 10%;
+    margin-left: 15%;
+    font-size: 70px;
+    opacity: 0.5;
+}
 a{
-    margin-left: 34%;
+    margin-left: 15%;
     font-size:60px;
     color:black;
     text-decoration: none;
+}
+.box{
+    width:70%;
+    height:60%;
+    position: fixed;
+    background: blue;
+    margin-left: 15%;
+    margin-top: 35%;
+    opacity: 0.2;
+    overflow:auto;
 }

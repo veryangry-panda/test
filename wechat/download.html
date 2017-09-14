@@ -4,33 +4,18 @@
     <meta charset="UTF-8">
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
     <title>download</title>
-    <script>
-        window.onload=function() {
-            var winWidth=0;
-            var winHeight=0;
-            function findsize(){
-                if(window.innerWidth){
-                    winWidth=window.innerWidth;
-                }
-                if(window.innerHeight){
-                    winHeight=window.innerHeight;
-                }
-            }
-            findsize();
-            console.log(winWidth);
-            console.log(winHeight);
-            var elen=document.getElementById("bg");
-            elen.style.backgroundSize = winWidth + 'px' + winHeight + 'px';
-        }
-    </script>
+    <script src="js/background_cover.js"></script>
     <link rel="stylesheet" href="css/download.css">
 
 </head>
 <body id="bg" class="bg">
+<div class="box">
 <p class="sub1">数学1<a href="aaa" download="aaa">下载</a></p>
 <p class="sub2">数学2<a href="aaa" download="aaa">下载</a></p>
 <p class="sub3">数学3<a href="aaa" download="aaa">下载</a></p>
 <p class="sub4">数学4<a href="aaa" download="aaa">下载</a></p>
+<p class="sub5">数学5<a href="aaa" download="aaa">下载</a></p>
+<p class="sub6">数学6<a href="aaa" download="aaa">下载</a></p>
 </div>
 </body>
 </html>

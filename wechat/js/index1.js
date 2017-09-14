@@ -20,9 +20,12 @@ function JudgeAccount() {
 		}
 	}
     document.querySelector("#TimeTable").onclick = function() {
-            window.location.href = "TimeTable.html";
+            window.location.href = "timeTable.html";
     }
     document.querySelector("#Activity").onclick = function() {
-        window.location.href = "Activity.html";
+        window.location.href = "activity.html";
+    }
+    document.querySelector("#run").onclick = function() {
+        window.location.href = "run.html";
     }
 }

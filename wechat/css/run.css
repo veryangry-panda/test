@@ -1,0 +1,78 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}
+/*背景属性*/
+body{
+    background:url("../value/images/run_images/run.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-attachment:fixed;
+    box-sizing: border-box;
+}
+/*为跑操表格设置一个方形小窗口，可以上下滚动*/
+.data{
+    width: 100%;
+    height: 55%;
+    overflow: auto;
+    position: absolute;
+    top:20%;
+}
+/*表格属性*/
+table{
+    width: 75%;
+    text-align: center;
+    margin: auto;
+}
+/*js写的th表头，被之后的th1,th2覆盖*/
+th{
+    font-size:60px;
+    color: rgba(0,0,0,0);
+}
+td{
+    font-size: 50px;
+}
+/*跑操次数设置盒子，覆盖在原th上*/
+.th1{
+    width: 38%;
+    height: 8%;
+    background-color: #e9eada;
+    position: absolute;
+    margin-top: -92%;
+    margin-left: 12%;
+    font-size:53px;
+    font-family:"宋体";
+    padding-left: 8%;
+    padding-top: 1%;
+    box-sizing: border-box;
+    opacity: 0.9;
+}
+/*跑操时间设置盒子，覆盖在原th上*/
+.th2{
+    width: 38%;
+    height: 8%;
+    background-color: #e9eada;
+    position: absolute;
+    margin-top: -92%;
+    margin-left: 50%;
+    font-size:53px;
+    font-family:"宋体";
+    padding-left: 8%;
+    padding-top: 1%;
+    box-sizing: border-box;
+    opacity: 0.9;
+}
+/*体现总次数，具体数值需要从json中提取*/
+.times{
+    height: 7%;
+    margin-left: 18%;
+    margin-top: 120%;
+    font-size:120px;
+    font-style: italic;
+    color: #f7eed1;
+    letter-spacing: 13px;
+    text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135 }
+/*改变透明度使相邻两行颜色有差别*/
+.color1{
+    background-color: rgba(250, 216, 95, 0.5);
+}
+.color2{
+    background-color: rgba(249, 231, 170,0.1);
+}

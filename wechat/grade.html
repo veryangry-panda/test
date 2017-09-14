@@ -3,8 +3,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <progress id='progress' style='width:100px' value='5' max='100'></progress>
-    <!--<meter id='progress' style='width:100px' value='5' min='1' max='100'></meter>-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>grade</title>
     <link rel="stylesheet" href="css/grade.css">
@@ -37,7 +35,7 @@
         </table>
     </div>
     <!--用表格标签来记录数据-->
-    <table>
+    <table class="real_table">
         <thead class="real_thead">
             <tr>
                 <th class="course">课程</th>
@@ -48,26 +46,14 @@
         </thead>
 
         <tbody id="tbody">
-            <!--<tr></tr>
-            <!--数据的样式，js处理数据的时候参照此格式-->
-            <!--<tr>-->
-                <!--<td>计算机应用</td>-->
-                <!--<td>1.0</td>-->
-                <!--<td>1.0</td>-->
-                <!--<td>不合格</td>-->
-            <!--</tr>
-            <tr>
-                <td>计算机应用</td>
-                <td>1.0</td>
-                <td>1.0</td>
-                <td>不合格</td>
-            </tr>-->
-
-
 
         </tbody>
 
     </table>
+</div>
+<div  id="loading">
+    <img src="value/images/grade_images/loading.gif" alt="">
+    <p>别催啦，玩儿命加载中...</p>
 </div>
 </body>
 </html>
