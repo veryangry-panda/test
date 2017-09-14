@@ -1,1 +1,1 @@
-{"schoolYear":"2016-2017","term":"2"}
+{"schoolYear":"2016-2017","term":"1"}

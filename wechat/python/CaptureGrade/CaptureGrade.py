@@ -3,10 +3,6 @@
 import bs4
 import simplejson
 
-import sys
-reload(sys)
-sys.setdefaultencoding('utf8')
-
 import Common
 import requests
 
@@ -67,8 +63,8 @@ GPA = a.get_text()
 tmp["GPA"] = GPA[7:30]
 
 
-result = simplejson.dumps(tmp,encoding='utf-8',ensure_ascii=False)
-print result
+result = simplejson.dumps(tmp)
+print(result)
 
 # mark
 # fout = open( "CaptureGrade.txt", "w" )

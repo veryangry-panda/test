@@ -26,6 +26,7 @@ function setScore() {
 	ajax.send('username=' + username + '&password=' + password + '&checkcode=' + checkcode + '&schoolYear=' + schoolYear + '&term=' + term);
 	ajax.onreadystatechange = function() {
 		if(ajax.readyState == 4 && ajax.status == 200) {
+			console.log( ajax.responseText )
 			var jsObj = JSON.parse(ajax.responseText);
 			if(jsObj.result == "success") {
 				console.log(jsObj.result)

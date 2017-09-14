@@ -17,8 +17,8 @@ try:
 	fout = open( "../../value/images/CaptureGrade/checkcode.jpg", "wb" )
 	fout.write( conn.content )
 	fout.close()
-except Exception,e:
-	print e
+except Exception as e:
+	print( e )
 
 # print "CaptureImage.py"
 
