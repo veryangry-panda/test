@@ -25,9 +25,14 @@ function setScore() {
 	ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	ajax.send('username=' + username + '&password=' + password + '&checkcode=' + checkcode + '&schoolYear=' + schoolYear + '&term=' + term);
 	ajax.onreadystatechange = function() {
+<<<<<<< HEAD
 		if(ajax.readyState == 4 && ajax.status === 200) {
 			console.log( ajax.responseText )
             console.log( "b" )
+=======
+		if(ajax.readyState == 4 && ajax.status == 200) {
+			console.log( ajax.responseText )
+>>>>>>> 005c52adbafb9593c4cc3680154f1ebd7d2371fc
 			var jsObj = JSON.parse(ajax.responseText);
 			if(jsObj.result == "success") {
 				// console.log(jsObj.result)
