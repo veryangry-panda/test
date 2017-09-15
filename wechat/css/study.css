@@ -14,14 +14,14 @@ div{
 
 .lesson{
     background-color: red;
-    background: url(../value/images/study_images/lesson.png) no-repeat;
+    background: url(../value/images/study_images/upload.png) no-repeat;
     background-size: 100% 100%;
 }
 
 .exercise{
     margin-left: 50%;
     background-color: blue;
-    background: url(../value/images/study_images/exercise.png) no-repeat;
+    background: url(../value/images/study_images/download.png) no-repeat;
     background-size: 100% 100%;
 }
 
