@@ -1,1 +1,3 @@
 simplejson
+bs4
+requests

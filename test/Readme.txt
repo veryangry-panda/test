@@ -1,1 +1,0 @@
-test the operation of ajax in cloud computer

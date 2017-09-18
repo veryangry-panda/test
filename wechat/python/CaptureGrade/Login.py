@@ -7,7 +7,6 @@ import simplejson
 
 import Common
 
-
 url = "http://202.119.225.34/default2.aspx"
 
 header = {
@@ -70,7 +69,8 @@ try:
         out["failReason"] = "need to login in again"
 except:
     pass
-if out.has_key( "result" ):
+# if out.has_key( "result" ):
+if "result" in out:
     result = simplejson.dumps( out, encoding="utf-8", ensure_ascii=False )
     print( result )
 # soup = bs4.BeautifulSoup( conn.content, "html.parser", from_encoding="utf-8" )

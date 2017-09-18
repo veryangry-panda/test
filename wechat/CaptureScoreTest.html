@@ -1,0 +1,44 @@
+<!-- 测试页面，使用时请自行填写账号密码（ Line 32, 33 ） -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<img src="">
+	<input type="text" name="">
+	<button onclick="submit()"></button>
+	<div></div>
+</body>
+</html>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+	$.ajax({  
+		url: 'php/CaptureGrade/CaptureCheckcode.php',  
+		type: 'POST',  
+		data:{
+			
+		},
+		success: function(response){
+			$("img").attr( "src", "value/images/CaptureGrade/checkcode.jpg" )
+		}   
+	})
+	function submit() {
+		$.ajax({  
+			url: 'php/CaptureGrade/CaptureScore.php',  
+			type: 'POST',  
+			data:{
+				"username": "",
+				"password": "",
+				"checkcode": $("input").val(),
+				"schoolYear": "2016-2017",
+				"term": "1"
+			},
+			success: function(response){
+				$("div").html( response )
+			}   
+		})  
+	}
+
+</script>
