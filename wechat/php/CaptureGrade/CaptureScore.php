@@ -27,6 +27,11 @@
 	$schoolYear = $_POST["schoolYear"];
 	$term = $_POST["term"];
 
+	$rootPath = $_SERVER["DOCUMENT_ROOT"];
+	$programDir = "Wechat/wechat";
+	$valuePath = "value/parameter/CaptureGrade";
+	$pythonPath = "python/CaptureGrade";
+
 	// $username = "B16041718";
 	// $password = "";
 	// $checkcode = "4hc1";
@@ -52,13 +57,14 @@
 			"schoolYear" => $schoolYear,
 			"term" => $term
 		);
-		$fout = fopen( "../../value/parameter/CaptureGrade/term.txt", "w" );
+
+		$fout = fopen( sprintf( "%s/%s/%s/term.txt", $rootPath, $programDir, $valuePath ), "w" );
 		fwrite( $fout, json_encode( $arr ) );
 		fclose( $fout );
 	}
 	
 	if( $checkcode != "" ) {
-		$fout = fopen( "../../value/parameter/CaptureGrade/checkcode.txt", "w" );
+		$fout = fopen( sprintf( "%s/%s/%s/checkcode.txt", $rootPath, $programDir, $valuePath ), "w" );
 		fwrite( $fout, $checkcode );
 		fclose( $fout );
 	} else {
@@ -70,7 +76,7 @@
 		return;
 	}
 
-	$fout = fopen( "../../value/parameter/CaptureGrade/username.txt", "w" );
+	$fout = fopen( sprintf( "%s/%s/%s/username.txt", $rootPath, $programDir, $valuePath ), "w" );
 	$arr = array(
 		"username" => $username,
 		"password" => $password
@@ -79,12 +85,12 @@
 	fwrite( $fout, $res );
 	fclose( $fout );
 
-	exec( "python ../../python/CaptureGrade/Login.py", $info );
+	exec( sprintf( "python %s/%s/%s/Login.py", $rootPath, $programDir, $pythonPath ), $info );
 	if( $info ) {
 		echo $info[0];
 		return;
 	}
-	system( "python ../../python/CaptureGrade/CaptureViewState2.py" );
-	system( "python ../../python/CaptureGrade/CaptureGrade.py" );
+	system( sprintf( "python %s/%s/%s/CaptureViewState2.py", $rootPath, $programDir, $pythonPath ) );
+	system( sprintf( "python %s/%s/%s/CaptureGrade.py", $rootPath, $programDir, $pythonPath ) );
 	return;
  ?>
